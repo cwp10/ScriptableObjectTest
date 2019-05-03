@@ -24,7 +24,7 @@ public class GameWorld : MonoBehaviour
         _player.InitData(playerStatus_);
     }
 
-    public void OnCreateMonster(object[] args)
+    public void OnCreateMonster(object sender, object[] args)
     {
         int coin = (int)args[0];
         playerStatus_.Coin += coin;

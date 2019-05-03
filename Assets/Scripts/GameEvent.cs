@@ -7,11 +7,11 @@ public class GameEvent : ScriptableObject
 {
     private List<GameEventListener> _gameEventListener = new List<GameEventListener>();
 
-    public void Notify(params object[] args)
+    public void Notify(object sender, params object[] args)
     {
         for (int i = 0; i < _gameEventListener.Count; i++)
         {
-            _gameEventListener[i].OnEventNotified(args);
+            _gameEventListener[i].OnEventNotified(sender, args);
         }
     }
 

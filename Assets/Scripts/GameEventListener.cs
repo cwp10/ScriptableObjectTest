@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 
 [System.Serializable]
-public class ResponseEvent : UnityEvent<object[]> {}
+public class ResponseEvent : UnityEvent<object, object[]> {}
 public class GameEventListener : MonoBehaviour
 {
     public GameEvent gameEvent = null;
@@ -18,8 +18,8 @@ public class GameEventListener : MonoBehaviour
         gameEvent.UnRegisterListener(this);
     }
 
-    public void OnEventNotified(object[] args)
+    public void OnEventNotified(object sender, object[] args)
     {
-        response.Invoke(args);
+        response.Invoke(sender, args);
     }
 }

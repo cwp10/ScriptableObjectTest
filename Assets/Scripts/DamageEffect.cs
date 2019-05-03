@@ -7,7 +7,7 @@ public class DamageEffect : MonoBehaviour
 {
     [SerializeField] private GameObject effect_ = null;
 
-    public void OnShowDamage(object[] args)
+    public void OnShowDamage(object sender, object[] args)
     {
         float damage = (float)args[0];
         StartCoroutine(ShowDamage(damage));

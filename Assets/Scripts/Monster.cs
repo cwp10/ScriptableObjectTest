@@ -18,25 +18,25 @@ public class Monster : MonoBehaviour
         UpdateHealth(this._status.Hp, this._originHp);
     }
 
-    public void OnDamage(object[] args)
+    public void OnDamage(object sender, object[] args)
     {
         float dmg = (float)args[0];
         _status.Hp -= dmg;
         UpdateHealth(this._status.Hp, this._originHp);
 
-        damageEffectEvent_.Notify(dmg);
+        damageEffectEvent_.Notify(this, dmg);
         
         if (_status.Hp <= 0)
         {
             _status.Hp = 0;
-            dieEvent_.Notify(_status.Coin);
-            shakeEffectEvent_.Notify(0.2f, 0.1f);
+            dieEvent_.Notify(this, _status.Coin);
+            shakeEffectEvent_.Notify(this, 0.2f, 0.1f);
             Destroy(this.gameObject);
         }
     }
 
     private void UpdateHealth(float currentValue, float originValue)
     {
-        damageEvent_.Notify(currentValue, originValue);
+        damageEvent_.Notify(this, currentValue, originValue);
     }
 }

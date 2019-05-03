@@ -8,7 +8,7 @@ public class HeathBar : MonoBehaviour
     [SerializeField] private Slider sliderHp_ = null;
     [SerializeField] private Text textHp_ = null;
 
-    public void OnResetHealthBar(object[] args)
+    public void OnResetHealthBar(object sender, object[] args)
     {
         float currentHp = (float)args[0];
         float origintHp = (float)args[1];

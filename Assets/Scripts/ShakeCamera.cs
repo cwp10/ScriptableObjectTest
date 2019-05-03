@@ -11,7 +11,7 @@ public class ShakeCamera : MonoBehaviour
         _originPos = transform.localPosition;
     }
 
-    public void OnShake(object[] args)
+    public void OnShake(object sender, object[] args)
     {
         float amount = (float)args[0];
         float duration = (float)args[1];

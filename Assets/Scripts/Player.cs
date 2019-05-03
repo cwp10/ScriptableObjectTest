@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            damage_.Notify(_status.Attack);
+            damage_.Notify(this, _status.Attack);
         }
     }
 }
