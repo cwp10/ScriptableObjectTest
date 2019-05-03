@@ -20,9 +20,7 @@ public class GameWorld : MonoBehaviour
         GameObject clone  = Instantiate<GameObject>(go);
         _player = clone.GetComponent<Player>();
         _player.transform.SetParent(this.transform);
-        playerStatus_.Hp = 100;
-        playerStatus_.Attack = 5;
-        playerStatus_.Coin = 0;
+        playerStatus_.SetStatus(5, 100, 0);
         _player.InitData(playerStatus_);
     }
 
@@ -43,8 +41,7 @@ public class GameWorld : MonoBehaviour
         float hp = 100 + (_count * 10);
         _count += 1;
 
-        monsterStatus_.Hp = hp;
-        monsterStatus_.Coin = _count;
+        monsterStatus_.SetStatus(0, hp, _count);
         clone.GetComponent<Monster>().InitData(monsterStatus_); 
     }
 }

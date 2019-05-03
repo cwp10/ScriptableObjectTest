@@ -874,10 +874,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d02ab0f72df8465198e30db4f02ce46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStatus_: {fileID: 11400000, guid: b5286c723f8c249fb94cd3fc0a11124d, type: 2}
   textHp_: {fileID: 1433463006}
   textAttack_: {fileID: 750125494}
   textCoin_: {fileID: 1576346930}
-  playerStatus_: {fileID: 11400000, guid: b5286c723f8c249fb94cd3fc0a11124d, type: 2}
 --- !u!1 &676539810
 GameObject:
   m_ObjectHideFlags: 0
