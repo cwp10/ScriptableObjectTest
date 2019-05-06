@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad013fb35499f484aa1294de851c5a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status_: {fileID: 11400000, guid: 038d6cf9d93f74efca008b48ee2a4d75, type: 2}
   dieEvent_: {fileID: 11400000, guid: b6ee81f5b670c4dd295c3c62e73ec1de, type: 2}
   shakeEffectEvent_: {fileID: 11400000, guid: 6e2d2a7dfa2c34e6b95ecb0dfbccfe1e, type: 2}
   damageEvent_: {fileID: 11400000, guid: 1074e8bee3786459b9395bcec273a708, type: 2}

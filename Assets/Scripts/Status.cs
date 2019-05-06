@@ -5,11 +5,18 @@ using System;
 [CreateAssetMenu]
 public class Status : ScriptableObject
 {
+    [SerializeField] private string name_ = string.Empty;
     [SerializeField] private float attack_ = 0;
     [SerializeField] private float hp_ = 0;
     [SerializeField] private int coin_ = 0;
 
     public event Action OnChanged = delegate { };
+
+    public string Name
+    {
+        get { return name_; }
+        set { this.name_ = value; OnChanged(); }
+    }
 
     public float Attack
     {
@@ -29,8 +36,9 @@ public class Status : ScriptableObject
         set { this.coin_ = value; OnChanged(); }
     }
 
-    public void SetStatus(float attack, float hp, int coin)
+    public void SetStatus(string name, float attack, float hp, int coin)
     {
+        this.name_ = name;
         this.attack_ = attack;
         this.hp_ = hp;
         this.coin_ = coin;

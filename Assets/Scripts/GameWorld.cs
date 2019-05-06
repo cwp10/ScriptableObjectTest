@@ -2,8 +2,7 @@ using UnityEngine;
 using System.Collections;
 public class GameWorld : MonoBehaviour
 {
-    [SerializeField] private Status playerStatus_ = null;
-    [SerializeField] private Status monsterStatus_ = null;
+    [SerializeField] private GameEvent spawnEvent_ = null;
 
     private Player _player = null;
     private int _count = 0;
@@ -16,18 +15,15 @@ public class GameWorld : MonoBehaviour
 
     private void CreatePlayer()
     {
-        GameObject go = Resources.Load<GameObject>("Player");
-        GameObject clone  = Instantiate<GameObject>(go);
+        GameObject prefab = Resources.Load<GameObject>("Player");
+        GameObject clone  = Instantiate(prefab);
         _player = clone.GetComponent<Player>();
         _player.transform.SetParent(this.transform);
-        playerStatus_.SetStatus(5, 100, 0);
-        _player.InitData(playerStatus_);
+        _player.InitData("Player", 5, 100, 0);
     }
 
     public void OnCreateMonster(object sender, object[] args)
     {
-        int coin = (int)args[0];
-        playerStatus_.Coin += coin;
         StartCoroutine(MakeMonster());
     }
 
@@ -36,12 +32,14 @@ public class GameWorld : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         GameObject prefab = Resources.Load<GameObject>("Monster");
-        GameObject clone = Instantiate<GameObject>(prefab);
+        GameObject clone = Instantiate(prefab);
 
         float hp = 100 + (_count * 10);
         _count += 1;
+        string name = "enemy" + _count;
+        clone.GetComponent<Monster>().InitData(name, 0, hp, _count);
+        clone.transform.SetParent(this.transform);
 
-        monsterStatus_.SetStatus(0, hp, _count);
-        clone.GetComponent<Monster>().InitData(monsterStatus_); 
+        spawnEvent_.Notify(null, name);
     }
 }

@@ -25,8 +25,8 @@ public class PlayerInfo : MonoBehaviour
 
     private void OnUpdate()
     {
-        textHp_.text = "" + playerStatus_.Hp;
-        textAttack_.text = "" + playerStatus_.Attack;
-        textCoin_.text = "" + playerStatus_.Coin;
+        textHp_.text = "HP: " + playerStatus_.Hp;
+        textAttack_.text = "Attack: " + playerStatus_.Attack;
+        textCoin_.text = "Coin: " + playerStatus_.Coin;
     }
 }
